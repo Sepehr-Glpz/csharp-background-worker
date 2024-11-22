@@ -3,7 +3,7 @@ internal class RoundRobinMultiplexer(uint concurrency) : Multiplexer(concurrency
 {
     private uint _current = 0;
 
-    private readonly object _syncRoot = new object();
+    private readonly object _syncRoot = new();
 
     public override async ValueTask PublishAsync<TWork>(TWork work, CancellationToken ct = default)
     {
